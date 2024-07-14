@@ -8,12 +8,15 @@ import {
 } from "@heroicons/react/24/solid";
 import React, { useEffect, useState } from "react";
 
-const SearchSection = () => {
-  const [searchQuery, setSearchQuery] = useState("");
+const SearchSection = ({ searchParams }: any) => {
+  const [searchQuery, setSearchQuery] = useState<string>(
+    searchParams?.searchQuery ? searchParams?.searchQuery : ""
+  );
 
   const handleSearch = () => {
     const url = new URL(window.location.href);
     url.searchParams.set("searchQuery", searchQuery.toString());
+    url.searchParams.set("pageNumber", "1");
     window.location.replace(url.toString());
   };
 
@@ -62,6 +65,7 @@ const SearchSection = () => {
             type="text"
             className="md:w-full w-36 focus:outline-none "
             value={searchQuery}
+            placeholder={"Search"}
             onChange={(e) => setSearchQuery(e.target.value)}
             onKeyPress={handleKeyPress}
           />

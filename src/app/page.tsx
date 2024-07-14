@@ -28,7 +28,7 @@ export default async function Home({ searchParams }: { searchParams: any }) {
 
   return (
     <main>
-      <SearchSection />
+      <SearchSection  searchParams={ searchParams}/>
       <TabSection />
       <Pagination
         currentPage={searchParams?.pageNumber}
