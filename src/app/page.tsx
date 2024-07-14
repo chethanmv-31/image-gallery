@@ -3,7 +3,6 @@ import Pagination from "./Components/Pagination";
 import { TabSection } from "./Components/TabSection";
 import SearchSection from "./Components/SearchSection";
 import axios from "axios";
-import { useState } from "react";
 import { Footer } from "./Components/Footer";
 
 const fetchData = async (query: string, page: string) => {
